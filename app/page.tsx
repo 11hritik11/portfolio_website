@@ -1,14 +1,12 @@
 "use client"
 
-import { Github, Linkedin, Mail, Moon, Sun } from "lucide-react"
+import { Github, Linkedin, Mail, Moon, Sun, Code, Brain, Zap, Trophy } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useEffect, useState } from "react"
 
-export default function Portfolio() {
+export default function MangaPortfolio() {
   const [darkMode, setDarkMode] = useState(false)
-  const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
     const isDark =
@@ -17,15 +15,6 @@ export default function Portfolio() {
     setDarkMode(isDark)
     if (isDark) {
       document.documentElement.classList.add("dark")
-    }
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
-
-    if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
-      window.addEventListener("scroll", handleScroll, { passive: true })
-      return () => window.removeEventListener("scroll", handleScroll)
     }
   }, [])
 
@@ -42,29 +31,44 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+      {/* Manga-style navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-manga-white dark:bg-ink-black border-b-4 border-ink-black dark:border-naruto-orange">
+        <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            <a href="#home" className="text-lg font-semibold">
-              Hritik
-            </a>
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                About
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 bg-naruto-orange rounded-full border-4 border-ink-black dark:border-manga-white flex items-center justify-center font-bold text-manga-white text-xl">
+                H
+              </div>
+              <span className="text-xl font-black uppercase tracking-wider">HRITIK</span>
+            </div>
+            <div className="hidden md:flex items-center gap-6">
+              <a
+                href="#about"
+                className="text-sm font-bold uppercase tracking-wide hover:text-naruto-orange transition-colors"
+              >
+                STORY
               </a>
-              <a href="#projects" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Projects
+              <a
+                href="#projects"
+                className="text-sm font-bold uppercase tracking-wide hover:text-naruto-orange transition-colors"
+              >
+                MISSIONS
               </a>
-              <a href="#experience" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Experience
+              <a
+                href="#skills"
+                className="text-sm font-bold uppercase tracking-wide hover:text-naruto-orange transition-colors"
+              >
+                JUTSU
               </a>
-              <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Contact
+              <a
+                href="#contact"
+                className="text-sm font-bold uppercase tracking-wide hover:text-naruto-orange transition-colors"
+              >
+                CONNECT
               </a>
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-md hover:bg-accent transition-colors"
+                className="p-2 rounded-md hover:bg-naruto-orange hover:text-manga-white transition-colors border-2 border-ink-black dark:border-naruto-orange"
                 aria-label="Toggle dark mode"
               >
                 {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -74,356 +78,562 @@ export default function Portfolio() {
         </div>
       </nav>
 
-      <section id="home" className="pt-32 pb-20 px-6 sunrise-gradient overflow-hidden">
-        <div
-          className="max-w-6xl mx-auto parallax-bg"
-          style={{
-            transform: `translateY(${scrollY * 0.15}px)`,
-          }}
-        >
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">Rastrabhushan Dahal</h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-              Electrical Engineering Student & Data Science Enthusiast
+      {/* Hero section - Large feature panel */}
+      <section className="pt-24 pb-12 px-4 hero-gradient relative overflow-hidden">
+        <div className="speed-lines" />
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-6">
+            {/* Main hero panel */}
+            <div className="lg:col-span-2 manga-card bg-manga-white dark:bg-card p-8 lg:p-12 relative overflow-hidden">
+              <div className="absolute top-4 right-4 bg-naruto-orange text-manga-white px-4 py-2 rotate-3 font-black text-sm border-3 border-ink-black shadow-lg">
+                PRESIDENTIAL SCHOLAR!
+              </div>
+              <div className="relative z-10">
+                <div className="inline-block bg-ninja-blue text-manga-white px-3 py-1 text-xs font-bold uppercase mb-4 border-2 border-ink-black dark:border-manga-white">
+                  STUDENT & RESEARCHER
+                </div>
+                <h1 className="text-5xl lg:text-7xl font-black mb-4 burst-title uppercase leading-tight">
+                  RASTRABHUSHAN
+                  <br />
+                  <span className="text-naruto-orange">DAHAL</span>
+                </h1>
+                <p className="text-xl font-bold mb-6 text-muted-foreground uppercase tracking-wide">
+                  "BELIEVE IN YOUR DATA!"
+                </p>
+                <p className="text-lg mb-8 leading-relaxed">
+                  Electrical Engineering student with CS focus at{" "}
+                  <span className="font-bold text-naruto-orange">Texas State University</span>. Specializing in Machine
+                  Learning, EEG Analysis & Data Science with a perfect 4.0 GPA!
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="font-black uppercase bg-naruto-orange hover:bg-naruto-orange/90 text-manga-white border-3 border-ink-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,0.2)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] transition-all"
+                  >
+                    <a href="#projects">VIEW MISSIONS</a>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="font-black uppercase border-3 border-ink-black dark:border-naruto-orange shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,140,0,0.3)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] transition-all bg-transparent"
+                  >
+                    <a href="#contact">GET IN TOUCH</a>
+                  </Button>
+                </div>
+              </div>
+              {/* Speech bubble decoration */}
+              <div className="absolute bottom-8 right-8 hidden lg:block">
+                <div className="relative bg-manga-white dark:bg-card border-3 border-ink-black dark:border-naruto-orange rounded-2xl p-4 shadow-lg">
+                  <div className="absolute -bottom-3 right-8 w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[15px] border-t-ink-black dark:border-t-naruto-orange" />
+                  <div className="absolute -bottom-2 right-8 w-0 h-0 border-l-[13px] border-l-transparent border-r-[13px] border-r-transparent border-t-[13px] border-t-manga-white dark:border-t-card" />
+                  <p className="font-bold text-sm">4.0 GPA • HACKATHON WINNER</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Side panel with character illustration placeholder */}
+            <div className="space-y-6">
+              <div className="manga-card bg-ninja-blue text-manga-white p-6 relative overflow-hidden h-full min-h-[300px] flex flex-col justify-between">
+                <div>
+                  <div className="font-black text-2xl mb-2 uppercase">NARUTO STYLE!</div>
+                  <p className="text-sm opacity-90 mb-4">
+                    Never give up on your projects, believe in your code, and always push forward!
+                  </p>
+                </div>
+                {/* Placeholder for Naruto character - using query parameter for image generation */}
+                <div className="relative w-full h-48 bg-naruto-orange/20 border-3 border-manga-white rounded-lg overflow-hidden">
+                  <img src="/naruto-uzumaki-character-standing-confident-pose-o.jpg" alt="Naruto character" className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute top-4 right-4 w-12 h-12 bg-manga-white rounded-full border-3 border-ink-black flex items-center justify-center">
+                  <Zap className="w-6 h-6 text-naruto-orange" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="manga-divider max-w-7xl mx-auto" />
+
+      {/* Recent Updates & Profile section */}
+      <section className="py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-6">
+            {/* Recent Achievements */}
+            <div className="lg:col-span-2">
+              <div className="manga-card bg-card p-6 mb-6">
+                <h2 className="text-2xl font-black uppercase mb-6 flex items-center gap-3">
+                  <Trophy className="w-8 h-8 text-naruto-orange" />
+                  RECENT ACHIEVEMENTS
+                </h2>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg border-2 border-border">
+                    <div className="w-2 h-2 bg-naruto-orange rounded-full mt-2" />
+                    <div>
+                      <div className="font-bold uppercase text-sm text-naruto-orange mb-1">RiverHacks Winner</div>
+                      <p className="text-sm">
+                        Won hackathon with XGBoost-based exoplanet exploration model. Built data pipeline and deployed
+                        FastAPI prediction service.
+                      </p>
+                      <div className="text-xs text-muted-foreground mt-2">OCTOBER 2025</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg border-2 border-border">
+                    <div className="w-2 h-2 bg-ninja-blue rounded-full mt-2" />
+                    <div>
+                      <div className="font-bold uppercase text-sm text-ninja-blue mb-1">EEG Research Published</div>
+                      <p className="text-sm">
+                        Conducting groundbreaking research on sleep-related neural signals using Python-based signal
+                        processing pipelines.
+                      </p>
+                      <div className="text-xs text-muted-foreground mt-2">2024 – PRESENT</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg border-2 border-border">
+                    <div className="w-2 h-2 bg-naruto-orange rounded-full mt-2" />
+                    <div>
+                      <div className="font-bold uppercase text-sm text-naruto-orange mb-1">
+                        Presidential Scholarship
+                      </div>
+                      <p className="text-sm">
+                        Awarded full-tuition merit scholarship for outstanding academic performance in Computer Science.
+                      </p>
+                      <div className="text-xs text-muted-foreground mt-2">AUGUST 2024</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Profile stats panel */}
+            <div className="space-y-6">
+              <div className="manga-card bg-card p-6">
+                <h3 className="font-black uppercase text-lg mb-4 border-b-2 border-border pb-2">NINJA STATS</h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-bold">LEVEL</span>
+                    <span className="text-xl font-black text-naruto-orange">GENIUS</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-bold">GPA</span>
+                    <span className="text-xl font-black text-ninja-blue">4.0</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-bold">PROJECTS</span>
+                    <span className="text-xl font-black text-naruto-orange">4+</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-bold">HACKATHONS</span>
+                    <span className="text-xl font-black text-ninja-blue">WON 1</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="manga-card bg-naruto-orange text-manga-white p-6 text-center">
+                <div className="font-black text-4xl mb-2">🍥</div>
+                <p className="font-bold text-sm uppercase">Ramen Fueled Coding</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="manga-divider max-w-7xl mx-auto" />
+
+      {/* Projects/Missions section - Manga grid layout */}
+      <section id="projects" className="py-12 px-4 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl lg:text-5xl font-black uppercase mb-4">
+              <span className="text-naruto-orange">COMPLETED</span> MISSIONS
+            </h2>
+            <p className="text-lg text-muted-foreground">Epic projects from the code battlefield</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Project 1 - Beyond Blue */}
+            <div className="manga-card bg-card p-0 overflow-hidden action-effect group">
+              <div className="relative h-48 bg-gradient-to-br from-naruto-orange to-ninja-blue overflow-hidden">
+                <img
+                  src="/space-exoplanet-stars-digital-art.jpg"
+                  alt="Beyond Blue project"
+                  className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute top-3 right-3 bg-naruto-orange text-manga-white px-3 py-1 text-xs font-black uppercase border-2 border-ink-black rotate-3">
+                  WINNER
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="text-xl font-black uppercase mb-2">BEYOND BLUE</h3>
+                <div className="text-xs text-muted-foreground font-bold mb-3 uppercase">RiverHacks • Oct 2025</div>
+                <p className="text-sm mb-4 leading-relaxed">
+                  XGBoost model for exoplanet discovery with data cleaning, feature engineering, and FastAPI deployment.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge className="comic-badge bg-naruto-orange/10 text-naruto-orange border-naruto-orange">
+                    PYTHON
+                  </Badge>
+                  <Badge className="comic-badge bg-ninja-blue/10 text-ninja-blue border-ninja-blue">XGBOOST</Badge>
+                  <Badge className="comic-badge bg-muted text-foreground border-border">FASTAPI</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2 - Adaptly */}
+            <div className="manga-card bg-card p-0 overflow-hidden action-effect group">
+              <div className="relative h-48 bg-gradient-to-br from-ninja-blue to-purple-500 overflow-hidden">
+                <img
+                  src="/financial-charts-data-analysis-graphs.jpg"
+                  alt="Adaptly project"
+                  className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-xl font-black uppercase mb-2">ADAPTLY</h3>
+                <div className="text-xs text-muted-foreground font-bold mb-3 uppercase">HackTexas • Oct 2025</div>
+                <p className="text-sm mb-4 leading-relaxed">
+                  Financial analysis of Toyota Financial Services with performance indicators and trend visualization.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge className="comic-badge bg-naruto-orange/10 text-naruto-orange border-naruto-orange">
+                    PYTHON
+                  </Badge>
+                  <Badge className="comic-badge bg-ninja-blue/10 text-ninja-blue border-ninja-blue">PANDAS</Badge>
+                  <Badge className="comic-badge bg-muted text-foreground border-border">MATPLOTLIB</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 3 - CaliHome */}
+            <div className="manga-card bg-card p-0 overflow-hidden action-effect group">
+              <div className="relative h-48 bg-gradient-to-br from-green-500 to-ninja-blue overflow-hidden">
+                <img
+                  src="/california-houses-real-estate-property.jpg"
+                  alt="CaliHome project"
+                  className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-xl font-black uppercase mb-2">CALIHOME</h3>
+                <div className="text-xs text-muted-foreground font-bold mb-3 uppercase">Personal • Sep 2025</div>
+                <p className="text-sm mb-4 leading-relaxed">
+                  Random Forest model predicting California housing prices with Streamlit deployment.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge className="comic-badge bg-naruto-orange/10 text-naruto-orange border-naruto-orange">
+                    PYTHON
+                  </Badge>
+                  <Badge className="comic-badge bg-ninja-blue/10 text-ninja-blue border-ninja-blue">SCIKIT-LEARN</Badge>
+                  <Badge className="comic-badge bg-muted text-foreground border-border">STREAMLIT</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 4 - EEG Classifier */}
+            <div className="manga-card bg-card p-0 overflow-hidden action-effect group">
+              <div className="relative h-48 bg-gradient-to-br from-purple-500 to-naruto-orange overflow-hidden">
+                <img
+                  src="/brain-waves-eeg-neural-signals-medical.jpg"
+                  alt="EEG project"
+                  className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-xl font-black uppercase mb-2">EEG CLASSIFIER</h3>
+                <div className="text-xs text-muted-foreground font-bold mb-3 uppercase">Personal • Aug 2025</div>
+                <p className="text-sm mb-4 leading-relaxed">
+                  Streamlit app using MNE-Python for EEG processing and schizophrenia prediction.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge className="comic-badge bg-naruto-orange/10 text-naruto-orange border-naruto-orange">
+                    PYTHON
+                  </Badge>
+                  <Badge className="comic-badge bg-ninja-blue/10 text-ninja-blue border-ninja-blue">MNE</Badge>
+                  <Badge className="comic-badge bg-muted text-foreground border-border">STREAMLIT</Badge>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="manga-divider max-w-7xl mx-auto" />
+
+      {/* Skills/Jutsu section */}
+      <section id="skills" className="py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl lg:text-5xl font-black uppercase mb-4">
+              MY <span className="text-naruto-orange">JUTSU</span> ARSENAL
+            </h2>
+            <p className="text-lg text-muted-foreground">Mastered skills and techniques</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Programming Jutsu */}
+            <div className="manga-card bg-card p-6 chakra-glow">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-naruto-orange rounded-full border-3 border-ink-black dark:border-manga-white flex items-center justify-center">
+                  <Code className="w-6 h-6 text-manga-white" />
+                </div>
+                <h3 className="text-xl font-black uppercase">CODING JUTSU</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="p-3 bg-muted/50 rounded border-2 border-border">
+                  <div className="font-bold text-sm mb-2 uppercase">Primary</div>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge className="comic-badge">Python</Badge>
+                    <Badge className="comic-badge">NumPy</Badge>
+                    <Badge className="comic-badge">pandas</Badge>
+                  </div>
+                </div>
+                <div className="p-3 bg-muted/50 rounded border-2 border-border">
+                  <div className="font-bold text-sm mb-2 uppercase">Secondary</div>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge className="comic-badge">scikit-learn</Badge>
+                    <Badge className="comic-badge">FastAPI</Badge>
+                    <Badge className="comic-badge">Git</Badge>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ML Jutsu */}
+            <div className="manga-card bg-card p-6 chakra-glow">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-ninja-blue rounded-full border-3 border-ink-black dark:border-manga-white flex items-center justify-center">
+                  <Brain className="w-6 h-6 text-manga-white" />
+                </div>
+                <h3 className="text-xl font-black uppercase">ML JUTSU</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="p-3 bg-muted/50 rounded border-2 border-border">
+                  <div className="font-bold text-sm mb-2 uppercase">Algorithms</div>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge className="comic-badge">XGBoost</Badge>
+                    <Badge className="comic-badge">Random Forest</Badge>
+                  </div>
+                </div>
+                <div className="p-3 bg-muted/50 rounded border-2 border-border">
+                  <div className="font-bold text-sm mb-2 uppercase">Tasks</div>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge className="comic-badge">Classification</Badge>
+                    <Badge className="comic-badge">Regression</Badge>
+                    <Badge className="comic-badge">Time Series</Badge>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Special Jutsu */}
+            <div className="manga-card bg-card p-6 chakra-glow">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-naruto-orange rounded-full border-3 border-ink-black dark:border-manga-white flex items-center justify-center">
+                  <Zap className="w-6 h-6 text-manga-white" />
+                </div>
+                <h3 className="text-xl font-black uppercase">SPECIAL JUTSU</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="p-3 bg-muted/50 rounded border-2 border-border">
+                  <div className="font-bold text-sm mb-2 uppercase">Core Skills</div>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge className="comic-badge">Signal Processing</Badge>
+                    <Badge className="comic-badge">EEG Analysis</Badge>
+                  </div>
+                </div>
+                <div className="p-3 bg-muted/50 rounded border-2 border-border">
+                  <div className="font-bold text-sm mb-2 uppercase">Visualization</div>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge className="comic-badge">Data Viz</Badge>
+                    <Badge className="comic-badge">Statistics</Badge>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="manga-divider max-w-7xl mx-auto" />
+
+      {/* About/Story section */}
+      <section id="about" className="py-12 px-4 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-4xl font-black uppercase mb-6">
+                MY <span className="text-naruto-orange">NINJA WAY</span>
+              </h2>
+              <div className="ninja-scroll mb-6">
+                <p className="font-bold text-lg mb-3">BACKSTORY</p>
+                <p className="leading-relaxed mb-4">
+                  I'm pursuing a Bachelor of Science in Electrical Engineering with a concentration in Computer Science
+                  and a minor in Physics at <span className="font-bold">Texas State University</span>. With a perfect
+                  4.0 GPA and Presidential Scholar status, I'm committed to excellence in academics and research.
+                </p>
+                <p className="leading-relaxed">
+                  My journey spans from winning hackathons like RiverHacks to conducting cutting-edge EEG research. I'm
+                  fascinated by the intersection of machine learning, signal processing, and neuroscience.
+                </p>
+              </div>
+
+              <div className="manga-card bg-card p-6">
+                <h3 className="font-black uppercase text-lg mb-4 flex items-center gap-2">
+                  <Trophy className="w-5 h-5 text-naruto-orange" />
+                  CURRENT MISSION
+                </h3>
+                <div className="space-y-3 text-sm">
+                  <p>
+                    <span className="font-bold text-naruto-orange">🔬 Research:</span> Working on large-scale EEG
+                    datasets, focusing on sleep-related neural signals
+                  </p>
+                  <p>
+                    <span className="font-bold text-ninja-blue">💻 Development:</span> Building Python-based pipelines
+                    for signal processing and ML analysis
+                  </p>
+                  <p>
+                    <span className="font-bold text-naruto-orange">🎯 Goal:</span> Investigating relationships between
+                    EEG features and clinical variables
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              {/* Education panel */}
+              <div className="manga-card bg-card p-6">
+                <h3 className="font-black uppercase text-xl mb-4 border-b-3 border-naruto-orange pb-2">EDUCATION</h3>
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="font-black uppercase">B.S. Electrical Engineering</div>
+                        <div className="text-sm text-muted-foreground">Texas State University</div>
+                      </div>
+                      <Badge className="comic-badge bg-naruto-orange/10 text-naruto-orange border-naruto-orange">
+                        2024-2028
+                      </Badge>
+                    </div>
+                    <div className="text-sm">
+                      <p className="text-muted-foreground">CS Concentration • Physics Minor</p>
+                      <p className="font-bold text-naruto-orange">GPA: 4.0</p>
+                    </div>
+                  </div>
+                  <div className="h-px bg-border" />
+                  <div>
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="font-black uppercase">High School Diploma</div>
+                        <div className="text-sm text-muted-foreground">National Board, Nepal</div>
+                      </div>
+                      <Badge className="comic-badge bg-ninja-blue/10 text-ninja-blue border-ninja-blue">2024</Badge>
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      <p>GPA: 3.6 • IELTS: 8 • SAT: 1430</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Character illustration panel */}
+              <div className="manga-card bg-gradient-to-br from-naruto-orange via-ninja-blue to-naruto-orange p-1">
+                <div className="bg-card h-full p-6">
+                  <div className="relative h-64 bg-muted rounded-lg overflow-hidden border-3 border-border">
+                    <img src="/naruto-uzumaki-training-determined-focused-ninja.jpg" alt="Training scene" className="w-full h-full object-cover" />
+                  </div>
+                  <p className="text-center font-bold uppercase mt-4 text-sm">
+                    "THE CODE NEVER GIVES UP ON ME, AND I NEVER GIVE UP ON THE CODE!"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="manga-divider max-w-7xl mx-auto" />
+
+      {/* Contact section */}
+      <section id="contact" className="py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="manga-card bg-card p-12 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-naruto-orange via-ninja-blue to-naruto-orange" />
+            <h2 className="text-4xl lg:text-5xl font-black uppercase mb-4">
+              LET'S <span className="text-naruto-orange">TEAM UP!</span>
+            </h2>
+            <p className="text-xl mb-8 text-muted-foreground">
+              Ready for new missions, collaborations, and research projects!
             </p>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Presidential Scholar at Texas State University with expertise in Python, Machine Learning, and Signal
-              Processing. Passionate about leveraging data-driven insights to solve complex problems in neuroscience and
-              beyond.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg">
-                <a href="#contact">Get in Touch</a>
+            <div className="flex flex-wrap gap-4 justify-center mb-8">
+              <Button
+                asChild
+                size="lg"
+                className="font-black uppercase bg-naruto-orange hover:bg-naruto-orange/90 text-manga-white border-3 border-ink-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] transition-all"
+              >
+                <a href="mailto:rdb200@txstate.edu">
+                  <Mail className="w-5 h-5 mr-2" />
+                  EMAIL ME
+                </a>
               </Button>
-              <Button asChild variant="outline" size="lg">
-                <a href="#projects">View Projects</a>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="font-black uppercase border-3 border-ink-black dark:border-naruto-orange shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] transition-all bg-transparent"
+              >
+                <a href="https://www.linkedin.com/in/rastrabhushan-dahal/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="w-5 h-5 mr-2" />
+                  LINKEDIN
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="font-black uppercase border-3 border-ink-black dark:border-naruto-orange shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] transition-all bg-transparent"
+              >
+                <a href="https://github.com/11hritik11" target="_blank" rel="noopener noreferrer">
+                  <Github className="w-5 h-5 mr-2" />
+                  GITHUB
+                </a>
               </Button>
             </div>
-            <div className="flex gap-4 mt-8">
+            <div className="flex gap-6 justify-center text-muted-foreground">
               <a
                 href="https://github.com/11hritik11"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="hover:text-naruto-orange transition-colors"
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-6 h-6" />
               </a>
               <a
                 href="https://www.linkedin.com/in/rastrabhushan-dahal/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="hover:text-naruto-orange transition-colors"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-6 h-6" />
               </a>
-              <a
-                href="mailto:rdb200@txstate.edu"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Mail className="w-5 h-5" />
+              <a href="mailto:rdb200@txstate.edu" className="hover:text-naruto-orange transition-colors">
+                <Mail className="w-6 h-6" />
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="ink-brush-divider" />
-
-      {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">About Me</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Background</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                I'm currently pursuing a Bachelor of Science in Electrical Engineering with a concentration in Computer
-                Science and a minor in Physics at Texas State University, maintaining a perfect 4.0 GPA. As a
-                Presidential Scholar, I'm committed to excellence in both academics and research.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                My journey spans from winning hackathons to conducting cutting-edge EEG research. I'm particularly
-                fascinated by the intersection of machine learning, signal processing, and neuroscience.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Skills</h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm font-medium mb-2">Programming</p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">Python</Badge>
-                    <Badge variant="secondary">NumPy</Badge>
-                    <Badge variant="secondary">pandas</Badge>
-                    <Badge variant="secondary">scikit-learn</Badge>
-                    <Badge variant="secondary">FastAPI</Badge>
-                    <Badge variant="secondary">Git</Badge>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-sm font-medium mb-2">Machine Learning</p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">XGBoost</Badge>
-                    <Badge variant="secondary">Random Forest</Badge>
-                    <Badge variant="secondary">Classification</Badge>
-                    <Badge variant="secondary">Regression</Badge>
-                    <Badge variant="secondary">Time Series</Badge>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-sm font-medium mb-2">Specializations</p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">Signal Processing</Badge>
-                    <Badge variant="secondary">EEG Analysis</Badge>
-                    <Badge variant="secondary">Data Visualization</Badge>
-                    <Badge variant="secondary">Statistical Analysis</Badge>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="ink-brush-divider" />
-
-      <section id="projects" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Projects</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="p-6 project-card">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold">Beyond Blue</h3>
-                <Badge className="ink-badge">Winner</Badge>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">River Hacks • Oct 2025</p>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                Developed an XGBoost-based model for exoplanet exploration by cleaning planetary data, removing NaN and
-                duplicate values, selecting key features, and deploying a prediction API using FastAPI.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <Badge variant="outline" className="ink-badge">
-                  Python
-                </Badge>
-                <Badge variant="outline" className="ink-badge">
-                  XGBoost
-                </Badge>
-                <Badge variant="outline" className="ink-badge">
-                  FastAPI
-                </Badge>
-              </div>
-            </Card>
-
-            <Card className="p-6 project-card">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold">Adaptly</h3>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">HackTexas (UT Austin) • Oct 2025</p>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                Collaborated on designing a dataset and analyzing the financial statements of Toyota Financial Services,
-                identifying performance indicators and visualizing key financial trends.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <Badge variant="outline" className="ink-badge">
-                  Python
-                </Badge>
-                <Badge variant="outline" className="ink-badge">
-                  pandas
-                </Badge>
-                <Badge variant="outline" className="ink-badge">
-                  Matplotlib
-                </Badge>
-              </div>
-            </Card>
-
-            <Card className="p-6 project-card">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold">CaliHome Predictor</h3>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">Personal Project • Sep 2025</p>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                Built a Random Forest Regressor to predict California housing prices using features such as distance to
-                beach, proximity to downtown, bedroom count, and home area, and deployed a prototype on Streamlit.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <Badge variant="outline" className="ink-badge">
-                  Python
-                </Badge>
-                <Badge variant="outline" className="ink-badge">
-                  scikit-learn
-                </Badge>
-                <Badge variant="outline" className="ink-badge">
-                  Streamlit
-                </Badge>
-              </div>
-            </Card>
-
-            <Card className="p-6 project-card">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold">EEG Binary Classifier</h3>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">Personal Project • Aug 2025</p>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                Created a Streamlit app leveraging MNE-Python to process and visualize EEG data, predicting if the
-                person is schizophrenic or not.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <Badge variant="outline" className="ink-badge">
-                  Python
-                </Badge>
-                <Badge variant="outline" className="ink-badge">
-                  MNE
-                </Badge>
-                <Badge variant="outline" className="ink-badge">
-                  Streamlit
-                </Badge>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <div className="ink-brush-divider" />
-
-      {/* Experience Section */}
-      <section id="experience" className="py-20 px-6 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Experience</h2>
-          <Card className="p-8">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Undergraduate Research Assistant</h3>
-                <p className="text-muted-foreground">EEG Data Analysis</p>
-              </div>
-              <div className="text-sm text-muted-foreground mt-2 md:mt-0">2024 – Present</div>
-            </div>
-            <p className="text-sm text-muted-foreground mb-6">Texas State University</p>
-            <ul className="space-y-3 text-muted-foreground">
-              <li className="flex gap-3">
-                <span className="text-primary mt-1">•</span>
-                <span>
-                  Working under a faculty supervisor on large-scale EEG datasets, focusing on preprocessing, feature
-                  extraction, and statistical analysis of sleep-related neural signals.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-primary mt-1">•</span>
-                <span>
-                  Implemented Python-based pipelines for signal processing, including filtering, segmentation, and
-                  computation of band-specific power features.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-primary mt-1">•</span>
-                <span>
-                  Applied machine learning techniques to analyze neural patterns and investigate relationships between
-                  EEG features and behavioral or clinical variables.
-                </span>
-              </li>
-            </ul>
-          </Card>
-
-          {/* Honors & Awards */}
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold mb-6">Honors & Awards</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="p-6">
-                <h4 className="text-lg font-semibold mb-2">RiverHacks Winner</h4>
-                <p className="text-sm text-muted-foreground mb-3">Oct 2025</p>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Won the RiverHacks Hackathon by building an XGBoost-based model for exoplanet discovery, featuring
-                  data cleaning, feature selection, and API deployment.
-                </p>
-              </Card>
-              <Card className="p-6">
-                <h4 className="text-lg font-semibold mb-2">Presidential Scholarship</h4>
-                <p className="text-sm text-muted-foreground mb-3">Aug 2024</p>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Received the Presidential Scholarship for outstanding academic performance and excellence in Computer
-                  Science. Full tuition merit-based award.
-                </p>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="ink-brush-divider" />
-
-      {/* Education Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Education</h2>
-          <div className="space-y-6">
-            <Card className="p-8">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Bachelor of Science in Electrical Engineering</h3>
-                  <p className="text-muted-foreground">Texas State University</p>
-                </div>
-                <div className="text-sm text-muted-foreground mt-2 md:mt-0">Expected May 2028</div>
-              </div>
-              <div className="space-y-2 text-muted-foreground">
-                <p>Concentration: Computer Science | Minor: Physics</p>
-                <p className="font-semibold text-foreground">GPA: 4.0</p>
-                <p>San Marcos, TX</p>
-              </div>
-            </Card>
-
-            <Card className="p-8">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">High School Diploma</h3>
-                  <p className="text-muted-foreground">National Board</p>
-                </div>
-                <div className="text-sm text-muted-foreground mt-2 md:mt-0">Graduated 2024</div>
-              </div>
-              <div className="space-y-2 text-muted-foreground">
-                <p>GPA: 3.6 | IELTS: 8 | SAT: 1430</p>
-                <p>Kathmandu, Nepal</p>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <div className="ink-brush-divider" />
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-muted/30">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Let's Connect</h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities, collaborations, or research projects. Feel free to reach
-            out!
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button asChild size="lg">
-              <a href="mailto:rdb200@txstate.edu">
-                <Mail className="w-4 h-4 mr-2" />
-                Email Me
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <a href="https://www.linkedin.com/in/rastrabhushan-dahal/" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="w-4 h-4 mr-2" />
-                LinkedIn
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <a href="https://github.com/11hritik11" target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4 mr-2" />
-                GitHub
-              </a>
-            </Button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-border">
-        <div className="max-w-6xl mx-auto text-center text-sm text-muted-foreground">
-          <p>© 2025 Rastrabhushan Dahal. Built with Next.js and Tailwind CSS.</p>
+      <footer className="py-8 px-4 border-t-4 border-ink-black dark:border-naruto-orange bg-muted/30">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="font-bold uppercase text-sm">
+            © 2025 Rastrabhushan Dahal • Built with <span className="text-naruto-orange">❤️</span> and lots of ramen
+          </p>
+          <p className="text-xs text-muted-foreground mt-2">
+            Powered by Next.js • Styled with Tailwind CSS • Inspired by Naruto
+          </p>
         </div>
       </footer>
     </div>

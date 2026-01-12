@@ -4,88 +4,92 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to warm sunrise + ink black aesthetic (Musashi + rice field) */
-  --background: oklch(0.99 0.01 60);
-  --foreground: oklch(0.15 0.01 60);
-  --card: oklch(0.985 0.008 55);
-  --card-foreground: oklch(0.18 0.01 60);
-  --popover: oklch(0.985 0.008 55);
-  --popover-foreground: oklch(0.18 0.01 60);
-  --primary: oklch(0.5 0.12 75);
-  --primary-foreground: oklch(0.99 0.01 60);
-  --secondary: oklch(0.92 0.02 55);
-  --secondary-foreground: oklch(0.2 0.01 60);
-  --muted: oklch(0.95 0.015 58);
-  --muted-foreground: oklch(0.45 0.02 55);
-  --accent: oklch(0.88 0.04 70);
-  --accent-foreground: oklch(0.18 0.01 60);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.88 0.02 60);
-  --input: oklch(0.88 0.02 60);
-  --ring: oklch(0.5 0.12 75);
-  --chart-1: oklch(0.55 0.12 75);
-  --chart-2: oklch(0.6 0.1 65);
-  --chart-3: oklch(0.52 0.14 80);
-  --chart-4: oklch(0.58 0.11 70);
-  --chart-5: oklch(0.54 0.13 78);
-  --radius: 0.5rem;
-  --sidebar: oklch(0.98 0.015 58);
-  --sidebar-foreground: oklch(0.18 0.01 60);
-  --sidebar-primary: oklch(0.5 0.12 75);
-  --sidebar-primary-foreground: oklch(0.99 0.01 60);
-  --sidebar-accent: oklch(0.93 0.02 60);
-  --sidebar-accent-foreground: oklch(0.2 0.01 60);
-  --sidebar-border: oklch(0.88 0.02 60);
-  --sidebar-ring: oklch(0.6 0.1 70);
+  /* Naruto-inspired vibrant color scheme */
+  --background: oklch(0.98 0.01 85);
+  --foreground: oklch(0.15 0.02 270);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 270);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 270);
+  /* Vibrant orange (Naruto's jacket) */
+  --primary: oklch(0.65 0.19 45);
+  --primary-foreground: oklch(1 0 0);
+  /* Deep ninja blue */
+  --secondary: oklch(0.45 0.15 250);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.95 0.01 85);
+  --muted-foreground: oklch(0.5 0.02 270);
+  --accent: oklch(0.92 0.03 85);
+  --accent-foreground: oklch(0.15 0.02 270);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.88 0.01 270);
+  --input: oklch(0.88 0.01 270);
+  --ring: oklch(0.65 0.19 45);
+  --chart-1: oklch(0.65 0.19 45);
+  --chart-2: oklch(0.45 0.15 250);
+  --chart-3: oklch(0.55 0.18 35);
+  --chart-4: oklch(0.5 0.14 260);
+  --chart-5: oklch(0.6 0.16 50);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.98 0.01 85);
+  --sidebar-foreground: oklch(0.15 0.02 270);
+  --sidebar-primary: oklch(0.65 0.19 45);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.92 0.03 85);
+  --sidebar-accent-foreground: oklch(0.15 0.02 270);
+  --sidebar-border: oklch(0.88 0.01 270);
+  --sidebar-ring: oklch(0.65 0.19 45);
 
-  /* Custom colors for Musashi aesthetic */
-  --sunrise-gold: oklch(0.75 0.12 75);
-  --field-green: oklch(0.55 0.08 130);
-  --ink-black: oklch(0.18 0.01 60);
-  --warm-glow: oklch(0.96 0.03 65);
+  /* Custom manga colors */
+  --naruto-orange: oklch(0.65 0.19 45);
+  --ninja-blue: oklch(0.45 0.15 250);
+  --scroll-beige: oklch(0.92 0.03 75);
+  --ink-black: oklch(0.15 0.02 270);
+  --manga-white: oklch(1 0 0);
 }
 
 .dark {
-  /* Dark mode with deep blue-black night sky + warm accents */
-  --background: oklch(0.12 0.015 260);
-  --foreground: oklch(0.97 0.01 60);
-  --card: oklch(0.16 0.02 265);
-  --card-foreground: oklch(0.97 0.01 60);
-  --popover: oklch(0.16 0.02 265);
-  --popover-foreground: oklch(0.97 0.01 60);
-  --primary: oklch(0.72 0.12 75);
-  --primary-foreground: oklch(0.12 0.015 260);
-  --secondary: oklch(0.22 0.02 265);
-  --secondary-foreground: oklch(0.97 0.01 60);
-  --muted: oklch(0.24 0.02 265);
-  --muted-foreground: oklch(0.6 0.04 270);
-  --accent: oklch(0.3 0.04 270);
-  --accent-foreground: oklch(0.97 0.01 60);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.24 0.02 265);
-  --input: oklch(0.24 0.02 265);
-  --ring: oklch(0.68 0.12 75);
-  --chart-1: oklch(0.6 0.12 75);
-  --chart-2: oklch(0.65 0.1 70);
-  --chart-3: oklch(0.7 0.08 130);
-  --chart-4: oklch(0.68 0.1 80);
-  --chart-5: oklch(0.63 0.11 75);
-  --sidebar: oklch(0.16 0.02 265);
-  --sidebar-foreground: oklch(0.97 0.01 60);
-  --sidebar-primary: oklch(0.72 0.12 75);
-  --sidebar-primary-foreground: oklch(0.97 0.01 60);
-  --sidebar-accent: oklch(0.24 0.03 265);
-  --sidebar-accent-foreground: oklch(0.97 0.01 60);
-  --sidebar-border: oklch(0.24 0.02 265);
-  --sidebar-ring: oklch(0.5 0.1 75);
+  /* Dark mode with deep night sky and vibrant accents */
+  --background: oklch(0.13 0.02 270);
+  --foreground: oklch(0.98 0.01 85);
+  --card: oklch(0.17 0.025 270);
+  --card-foreground: oklch(0.98 0.01 85);
+  --popover: oklch(0.17 0.025 270);
+  --popover-foreground: oklch(0.98 0.01 85);
+  --primary: oklch(0.7 0.19 45);
+  --primary-foreground: oklch(0.13 0.02 270);
+  --secondary: oklch(0.55 0.15 250);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.22 0.02 270);
+  --muted-foreground: oklch(0.65 0.02 270);
+  --accent: oklch(0.28 0.03 270);
+  --accent-foreground: oklch(0.98 0.01 85);
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.25 0.02 270);
+  --input: oklch(0.25 0.02 270);
+  --ring: oklch(0.7 0.19 45);
+  --chart-1: oklch(0.7 0.19 45);
+  --chart-2: oklch(0.55 0.15 250);
+  --chart-3: oklch(0.6 0.18 35);
+  --chart-4: oklch(0.58 0.14 260);
+  --chart-5: oklch(0.65 0.16 50);
+  --sidebar: oklch(0.17 0.025 270);
+  --sidebar-foreground: oklch(0.98 0.01 85);
+  --sidebar-primary: oklch(0.7 0.19 45);
+  --sidebar-primary-foreground: oklch(0.98 0.01 85);
+  --sidebar-accent: oklch(0.25 0.03 270);
+  --sidebar-accent-foreground: oklch(0.98 0.01 85);
+  --sidebar-border: oklch(0.25 0.02 270);
+  --sidebar-ring: oklch(0.7 0.19 45);
 
-  /* Dark mode Musashi colors */
-  --sunrise-gold: oklch(0.72 0.12 75);
-  --field-green: oklch(0.5 0.08 130);
-  --ink-black: oklch(0.97 0.01 60);
-  --warm-glow: oklch(0.2 0.03 270);
+  /* Dark mode manga colors */
+  --naruto-orange: oklch(0.7 0.19 45);
+  --ninja-blue: oklch(0.55 0.15 250);
+  --scroll-beige: oklch(0.25 0.03 75);
+  --ink-black: oklch(0.98 0.01 85);
+  --manga-white: oklch(0.17 0.025 270);
 }
 
 @theme inline {
@@ -128,11 +132,12 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Add custom Musashi colors to theme */
-  --color-sunrise-gold: var(--sunrise-gold);
-  --color-field-green: var(--field-green);
+  /* Add custom manga colors to theme */
+  --color-naruto-orange: var(--naruto-orange);
+  --color-ninja-blue: var(--ninja-blue);
+  --color-scroll-beige: var(--scroll-beige);
   --color-ink-black: var(--ink-black);
-  --color-warm-glow: var(--warm-glow);
+  --color-manga-white: var(--manga-white);
 }
 
 @layer base {
@@ -141,8 +146,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* Smooth transitions throughout */
-    transition: background-color 0.6s ease, color 0.6s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
@@ -150,108 +154,216 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Ink brush stroke divider styles */
-.ink-brush-divider {
+/* Manga panel-style divider */
+.manga-divider {
   position: relative;
-  height: 2px;
-  background: linear-gradient(to right, transparent 0%, var(--ink-black) 10%, var(--ink-black) 90%, transparent 100%);
-  opacity: 0.15;
-  margin: 3rem auto;
-  max-width: 80%;
+  height: 4px;
+  background: linear-gradient(to right, transparent 0%, var(--ink-black) 5%, var(--ink-black) 95%, transparent 100%);
+  margin: 2rem 0;
+  opacity: 0.8;
 }
 
-.ink-brush-divider::before {
+.manga-divider::before,
+.manga-divider::after {
   content: "";
   position: absolute;
-  top: -1px;
+  width: 12px;
+  height: 12px;
+  background: var(--naruto-orange);
+  border: 3px solid var(--ink-black);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.manga-divider::before {
+  left: 2rem;
+}
+
+.manga-divider::after {
+  right: 2rem;
+}
+
+/* Hero section with dynamic gradient */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    oklch(0.98 0.02 85) 0%,
+    oklch(0.95 0.04 50) 25%,
+    oklch(0.93 0.06 250) 50%,
+    oklch(0.95 0.04 45) 75%,
+    oklch(0.98 0.02 85) 100%
+  );
+  position: relative;
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(
+    135deg,
+    oklch(0.13 0.02 270) 0%,
+    oklch(0.15 0.08 45) 25%,
+    oklch(0.14 0.08 250) 50%,
+    oklch(0.16 0.06 45) 75%,
+    oklch(0.13 0.02 270) 100%
+  );
+}
+
+/* Manga panel card style */
+.manga-card {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  border: 3px solid var(--border);
+  box-shadow: 6px 6px 0 0 var(--ink-black);
+}
+
+.manga-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 0 var(--ink-black);
+}
+
+/* Comic-style badge */
+.comic-badge {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid currentColor;
+  box-shadow: 2px 2px 0 0 var(--ink-black);
+}
+
+/* Speed lines effect for dynamic sections */
+.speed-lines {
+  position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    var(--ink-black) 15%,
-    transparent 25%,
-    var(--ink-black) 40%,
-    transparent 55%,
-    var(--ink-black) 70%,
-    transparent 85%,
-    var(--ink-black) 90%,
-    transparent 100%
-  );
-  opacity: 0.08;
-  filter: blur(0.5px);
-}
-
-/* Hero sunrise gradient background */
-.sunrise-gradient {
-  background: linear-gradient(
-    135deg,
-    var(--warm-glow) 0%,
-    oklch(0.98 0.025 70) 25%,
-    oklch(0.96 0.04 75) 50%,
-    oklch(0.98 0.02 65) 75%,
-    var(--background) 100%
-  );
-  position: relative;
-}
-
-.dark .sunrise-gradient {
-  background: linear-gradient(
-    135deg,
-    oklch(0.18 0.03 265) 0%,
-    oklch(0.15 0.025 270) 25%,
-    oklch(0.14 0.04 75) 50%,
-    oklch(0.13 0.025 270) 75%,
-    var(--background) 100%
-  );
-}
-
-/* Subtle parallax effect for hero */
-@media (prefers-reduced-motion: no-preference) {
-  .parallax-bg {
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-
-/* Calm, smooth card hover effects */
-.project-card {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-}
-
-.project-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(135deg, transparent 0%, var(--sunrise-gold) 100%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
+  bottom: 0;
+  overflow: hidden;
   pointer-events: none;
-  z-index: -1;
-}
-
-.project-card:hover::after {
   opacity: 0.03;
 }
 
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px oklch(0.5 0.1 75 / 0.15);
+.speed-lines::before,
+.speed-lines::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 2px;
+  background: var(--ink-black);
+  transform: rotate(-15deg);
 }
 
-/* Ink texture effect on badges */
-.ink-badge {
+.speed-lines::before {
+  top: 20%;
+  left: -50%;
+}
+
+.speed-lines::after {
+  top: 60%;
+  left: -50%;
+}
+
+/* Ninja scroll effect */
+.ninja-scroll {
+  background: linear-gradient(180deg, var(--scroll-beige) 0%, oklch(0.88 0.04 75) 100%);
+  border-left: 4px solid var(--ink-black);
+  border-right: 4px solid var(--ink-black);
+  position: relative;
+  padding: 1.5rem;
+}
+
+.ninja-scroll::before,
+.ninja-scroll::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: linear-gradient(
+    90deg,
+    var(--ink-black) 0%,
+    var(--ink-black) 4px,
+    var(--scroll-beige) 4px,
+    var(--scroll-beige) calc(100% - 4px),
+    var(--ink-black) calc(100% - 4px)
+  );
+}
+
+.ninja-scroll::before {
+  top: 0;
+}
+
+.ninja-scroll::after {
+  bottom: 0;
+}
+
+/* Action lines animation */
+@keyframes action-lines {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.action-effect {
   position: relative;
   overflow: hidden;
 }
 
-.ink-badge::before {
+.action-effect::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 0%, var(--ink-black) 50%, transparent 100%);
-  opacity: 0.02;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, var(--naruto-orange) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.action-effect:hover::after {
+  opacity: 0.1;
+  animation: action-lines 0.8s ease-in-out;
+}
+
+/* Burst effect for hero title */
+@keyframes burst {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.burst-title {
+  animation: burst 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Chakra glow effect */
+.chakra-glow {
+  position: relative;
+}
+
+.chakra-glow::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, var(--naruto-orange), var(--ninja-blue), var(--naruto-orange));
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.chakra-glow:hover::before {
+  opacity: 0.5;
 }

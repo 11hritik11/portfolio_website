@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 
 export default function Portfolio() {
   const [darkMode, setDarkMode] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
     const isDark =
@@ -16,6 +17,15 @@ export default function Portfolio() {
     setDarkMode(isDark)
     if (isDark) {
       document.documentElement.classList.add("dark")
+    }
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+      window.addEventListener("scroll", handleScroll, { passive: true })
+      return () => window.removeEventListener("scroll", handleScroll)
     }
   }, [])
 
@@ -64,9 +74,13 @@ export default function Portfolio() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="pt-32 pb-20 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section id="home" className="pt-32 pb-20 px-6 sunrise-gradient overflow-hidden">
+        <div
+          className="max-w-6xl mx-auto parallax-bg"
+          style={{
+            transform: `translateY(${scrollY * 0.15}px)`,
+          }}
+        >
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">Rastrabhushan Dahal</h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-4">
@@ -112,6 +126,8 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      <div className="ink-brush-divider" />
 
       {/* About Section */}
       <section id="about" className="py-20 px-6 bg-muted/30">
@@ -169,15 +185,16 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      <div className="ink-brush-divider" />
+
       <section id="projects" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Projects</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 project-card">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-xl font-semibold">Beyond Blue</h3>
-                <Badge>Winner</Badge>
+                <Badge className="ink-badge">Winner</Badge>
               </div>
               <p className="text-sm text-muted-foreground mb-4">River Hacks • Oct 2025</p>
               <p className="text-muted-foreground mb-4 leading-relaxed">
@@ -185,13 +202,19 @@ export default function Portfolio() {
                 duplicate values, selecting key features, and deploying a prediction API using FastAPI.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <Badge variant="outline">Python</Badge>
-                <Badge variant="outline">XGBoost</Badge>
-                <Badge variant="outline">FastAPI</Badge>
+                <Badge variant="outline" className="ink-badge">
+                  Python
+                </Badge>
+                <Badge variant="outline" className="ink-badge">
+                  XGBoost
+                </Badge>
+                <Badge variant="outline" className="ink-badge">
+                  FastAPI
+                </Badge>
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 project-card">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-xl font-semibold">Adaptly</h3>
               </div>
@@ -201,13 +224,19 @@ export default function Portfolio() {
                 identifying performance indicators and visualizing key financial trends.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <Badge variant="outline">Python</Badge>
-                <Badge variant="outline">pandas</Badge>
-                <Badge variant="outline">Matplotlib</Badge>
+                <Badge variant="outline" className="ink-badge">
+                  Python
+                </Badge>
+                <Badge variant="outline" className="ink-badge">
+                  pandas
+                </Badge>
+                <Badge variant="outline" className="ink-badge">
+                  Matplotlib
+                </Badge>
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 project-card">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-xl font-semibold">CaliHome Predictor</h3>
               </div>
@@ -217,13 +246,19 @@ export default function Portfolio() {
                 beach, proximity to downtown, bedroom count, and home area, and deployed a prototype on Streamlit.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <Badge variant="outline">Python</Badge>
-                <Badge variant="outline">scikit-learn</Badge>
-                <Badge variant="outline">Streamlit</Badge>
+                <Badge variant="outline" className="ink-badge">
+                  Python
+                </Badge>
+                <Badge variant="outline" className="ink-badge">
+                  scikit-learn
+                </Badge>
+                <Badge variant="outline" className="ink-badge">
+                  Streamlit
+                </Badge>
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 project-card">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-xl font-semibold">EEG Binary Classifier</h3>
               </div>
@@ -233,14 +268,22 @@ export default function Portfolio() {
                 person is schizophrenic or not.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <Badge variant="outline">Python</Badge>
-                <Badge variant="outline">MNE</Badge>
-                <Badge variant="outline">Streamlit</Badge>
+                <Badge variant="outline" className="ink-badge">
+                  Python
+                </Badge>
+                <Badge variant="outline" className="ink-badge">
+                  MNE
+                </Badge>
+                <Badge variant="outline" className="ink-badge">
+                  Streamlit
+                </Badge>
               </div>
             </Card>
           </div>
         </div>
       </section>
+
+      <div className="ink-brush-divider" />
 
       {/* Experience Section */}
       <section id="experience" className="py-20 px-6 bg-muted/30">
@@ -305,6 +348,8 @@ export default function Portfolio() {
         </div>
       </section>
 
+      <div className="ink-brush-divider" />
+
       {/* Education Section */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -341,6 +386,8 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      <div className="ink-brush-divider" />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6 bg-muted/30">
